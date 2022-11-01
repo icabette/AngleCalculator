@@ -54,4 +54,4 @@ if __name__ == "__main__":
     imu.append(imu[0].setGyZ(400))
     imu.append(imu[0].setGy())
 
-    print(imu[0])
+    print(imu[0].getAcc(), imu[0].getGy())
