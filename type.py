@@ -1,3 +1,7 @@
+import math
+import time
+
+
 class IMU:
     def __init__(self) -> None:
         self.__accX = 0
@@ -8,6 +12,10 @@ class IMU:
         self.__gyZ = 0
         self.__acc = []
         self.__gy = []
+        self.__accAngle = []
+        self.__gyAngle = []
+        self.__kalmanAngle = []
+        self.__complAngle = []
 
     def setAccX(self, x):
         self.__accX = x
@@ -42,6 +50,27 @@ class IMU:
 
     def getGy(self) -> list:
         return self.__gy
+
+    def getAccAngle(self) -> list:
+        y_radians = math.atan2(self.__accX, math.sqrt((self.__accY*self.__accY) + (self.__accZ*self.__accZ)))
+        x_radians = math.atan2(self.__accY, math.sqrt((self.__accX*self.__accX) + (self.__accZ*self.__accZ)))
+        self.__accAngle.clear()
+        self.__accAngle.append(math.degrees(x_radians))
+        self.__accAngle.append(math.degrees(y_radians))
+        return self.__accAngle
+    
+    def getGyAngle(self) -> list:
+        past:time = 0
+        now = time.time()
+        dt = now - past
+        return self.__gyAngle
+    
+    def getComplAngle(self) -> list:
+        return self.__complAngle
+    
+    def getKalmanAngle(self) -> list:
+        return self.__kalmanAngle
+    
 
 if __name__ == "__main__":
     imu = [IMU()]
