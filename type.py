@@ -59,10 +59,13 @@ class IMU:
         self.__accAngle.append(math.degrees(y_radians))
         return self.__accAngle
     
-    def getGyAngle(self) -> list:
+    def getGyAngle(self,gy, baseGy:list) -> list:
+        DEGREE_PER_SECOND = 32767 / 250
         past:time = 0
         now = time.time()
         dt = now - past
+        self.__gyAngle.clear()
+        self.__gyAngle.append()
         return self.__gyAngle
     
     def getComplAngle(self) -> list:
