@@ -1,6 +1,17 @@
 import math
 import time
 
+### CONSTANTS Definition
+SS1 = 0
+SS2 = 1
+SS3 = 2
+SS4 = 3
+SS5 = 4
+SS6 = 5
+SS7 = 6
+SS8 = 7
+SS9 = 8
+TAS = 9 # Total Amount of Sensors
 
 class IMU:
     def __init__(self) -> None:
@@ -87,3 +98,5 @@ if __name__ == "__main__":
     imu.append(imu[0].setGy())
 
     print(imu[0].getAcc(), imu[0].getGy())
+
+    
