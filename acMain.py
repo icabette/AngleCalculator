@@ -28,8 +28,8 @@ def main() -> int:
             if ( xyzCount > 0 and (xyzCount%6 == 0)):
                 sensorCount += 1
             if ( sensorCount == type.TAS):
-                for i in range (0,type.TAS-1):
-                    print(imu[i].getAccAngle())
+                for i in range (0,type.TAS):
+                    print(i," : ",imu[i].getAccAngle())
                 sensorCount = 0
 
     return 0
